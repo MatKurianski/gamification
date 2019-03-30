@@ -50,6 +50,7 @@
     text-align: center;
     color: white;
     margin-bottom: 15px;
+    font-size: 13px;
 }
 
 .toggle-invertido {
@@ -81,8 +82,11 @@
         margin-left: 40px;
     }
 
-    .toggle {
-        font-size: 0;
+    .toggle,
+    .toggle:visited,
+    .toggle:hover,
+    .toggle:link {
+        display: none;
     }
 
     .logo-area {
