@@ -1,0 +1,15 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "PressStart";
+    src: url("./../res/fonts/PressStart2P.ttf");
+}
+
+body {
+    background-image: url("./../res/img/brick.jpg");
+    background-size: 35px;
+}
