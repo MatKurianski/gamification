@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sintese Game Jr.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/index.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/common.css">
 </head>
 <body>
     <?php include 'res/components/navbar.php';?>

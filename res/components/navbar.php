@@ -1,6 +1,6 @@
 <nav class="navbar">
     <div class="logo-area">
-        <img class="logo-image" src="res/img/sintese.png"/>
+        <img class="logo-image" src="/res/img/sintese.png"/>
         <span class="logo-text">Gamification Room</span>
     </div>
     <ul id="navbar-itens" class="navbar-itens">

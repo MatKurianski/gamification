@@ -12,4 +12,9 @@
 body {
     background-image: url("./../res/img/brick.jpg");
     background-size: 35px;
+    background-color: rgb(65, 139, 236);
+}
+
+.texto_borda {
+    -webkit-text-stroke: 0.5px black;
 }

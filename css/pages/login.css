@@ -1,0 +1,63 @@
+.login {
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid blue;
+    align-items: center;
+    text-align: center;
+    width: 95%;
+    padding: 25px;
+    font-family: 'PressStart';
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login input {
+    display: flex;
+    margin: 15px 0;
+    width: 100%;
+    height: 50px;
+    border: 1px solid blue;
+}
+
+.login input:hover {
+    border: 2px solid green;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.img-login {
+    width: 50px;
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.login button {
+    width: 300px;
+    height: 50px;
+    border: none;
+    color: white;
+    font-family: 'PressStart';
+}
+
+.login button:hover {
+    border: 2px solid blue;
+}
+
+.logar {
+    background-color: green;
+}
+
+.voltar {
+    background-color: red;
+}
+
+@media screen and (min-width: 768px) {
+    .login {
+        width: 600px;
+    }
+}
