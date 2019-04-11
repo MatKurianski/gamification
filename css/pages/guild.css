@@ -1,0 +1,40 @@
+.frase {
+    text-align: center;
+    color: white;
+    font-family: "PressStart";
+    font-size: 24px;
+    margin: 35px 0;
+}
+
+.botao {
+    font-family: "PressStart";
+    display: block;
+    text-align: center;
+    border: 3px solid black;
+    width: 320px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 17px;
+    margin: 30px auto;
+    color: white;
+    background-color: gray;
+    box-shadow: 1px 3px 0px #000;
+    transition: 5ms;
+}
+
+.botao:hover {
+    transform: translateY(-5px);
+    transition: 5ms;
+}
+
+.azul {
+    background-color: #4cbaff;
+}
+
+.verde {
+    background-color: #1c9924;
+}
+
+.vermelho {
+    background-color: #8e0232;
+}
