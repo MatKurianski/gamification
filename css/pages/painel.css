@@ -15,10 +15,11 @@ body, html {
 }
 
 .profile {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 3px solid #2C125E;
+    border: 3px solid #2C125E;
 }
 
 .profile img {
@@ -42,7 +43,7 @@ body, html {
 
 .dashboard li {
     display: flex;
-    border-left: 16px solid #6127CC;
+    border-left: 16px solid #3C1880;
     border-bottom: 3px solid #2C125E;
     font-size: 14px;
     height: 80px;
@@ -52,8 +53,9 @@ body, html {
     list-style: none;
 }
 
+.dashboard li:hover,
 .ativo {
-    border-left: 16px solid #3C1880 !important;
+    background-image: linear-gradient(to right, #3C1880, #6127CC);
 }
 
 .conteudo {
