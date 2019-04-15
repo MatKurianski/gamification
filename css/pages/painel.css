@@ -24,7 +24,7 @@
 
 .dashboard {
     grid-area: sidebar;
-    background-color: #553E80;
+    background-color: #33146B;
     font-family: 'PressStart';
     color: white;
 }
@@ -37,7 +37,7 @@
 
 .dashboard li {
     display: flex;
-    border-left: 16px solid #3C1880;
+    border-left: 10px solid #6127CC;
     border-bottom: 3px solid #2C125E;
     font-size: 14px;
     height: 80px;
@@ -49,13 +49,12 @@
 
 .dashboard li:hover,
 .ativo {
-    background-image: linear-gradient(to right, #3C1880, #6127CC);
+    background-image: linear-gradient(to left, #3C1880, #6127CC);
 }
 
 .conteudo {
-    background-color: lightgray;
+    background-color: rgb(95, 73, 138);
     grid-area: conteudo;
-    font-size: 150px;
     word-break: break-all;
-    overflow: scroll;
+    overflow-y: auto;
 }

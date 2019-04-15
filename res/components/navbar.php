@@ -30,6 +30,8 @@
         color: white;
         background-color: rgb(44, 18, 94);
         box-shadow: 10px 5px rgba(0, 0, 0, 0.3);
+        box-sizing: border-box;
+        z-index: 1000;
     }
 
     .logo-area {
