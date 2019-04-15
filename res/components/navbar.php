@@ -20,8 +20,9 @@
 <style>
     .navbar {
         display: flex;
-        align-items: center;
+        padding: 15px;
         justify-content: center;
+        align-items: center;
         font-family: 'PressStart';
         grid-area: navbar;
         flex-wrap: wrap;
@@ -29,12 +30,11 @@
         color: white;
         background-color: rgb(44, 18, 94);
         box-shadow: 10px 5px rgba(0, 0, 0, 0.3);
-        padding: 15px 0px;
     }
 
     .logo-area {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         width: 350px;
         padding: 0px 15px;
@@ -46,13 +46,12 @@
 
     .navbar-itens {
         width: 100%;
+        font-size: 14px;
         list-style-type: none;
         display: none;
-        padding-bottom: 15px;
     }
 
     .navbar-itens li {
-        padding-bottom: 15px;
         text-align: center;
     }
 
@@ -71,12 +70,10 @@
     .toggle:visited,
     .toggle:hover,
     .toggle:link {
-        display: block;
         width: 100%;
         text-decoration: none;
         text-align: center;
         color: white;
-        margin-bottom: 15px;
     }
 
     .toggle-invertido {
@@ -85,8 +82,9 @@
 
     @media screen and (min-width: 992px) {
         .navbar {
+            height: 80px;
             flex-direction: row;
-            padding-bottom: 0;
+            padding: 0;
             justify-content: flex-start;
             align-items: center;
         }
@@ -96,7 +94,7 @@
             margin-left: auto;
             margin-right: 30px;
             width: auto;
-            padding: 0;
+            height: 100%;
             flex-direction: row;
             justify-content: space-around;
             align-items: center;
@@ -114,6 +112,7 @@
         .logo-area {
             justify-self: flex-start;
             margin-left: 35px;
+            padding: 0;
         }
     }
 </style>

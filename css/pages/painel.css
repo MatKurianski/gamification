@@ -3,14 +3,9 @@
     grid-template-areas: 
         "navbar navbar"
         "sidebar conteudo";
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-columns: 250px 1fr;
-    border: 1px solid red;
     height: 100vh;
-}
-
-.navbar {
-    grid-area: navbar;
 }
 
 .profile {
@@ -18,12 +13,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 180px;
     border: 3px solid #2C125E;
 }
 
 .profile img {
     width: 115px;
-    margin: 15px 0px;
 }
 
 .dashboard {
