@@ -10,9 +10,8 @@
     <link href="https://unpkg.com/nes.css@2.1.0/css/nes.min.css" rel="stylesheet" />
 </head>
 <body>
-<div class="pagina">
-    <?php include '../res/components/navbar.php';?>
     <div class="container">
+        <?php include '../res/components/navbar.php';?>
         <div class="dashboard">
             <div class="profile">
                 <img src="https://cdn3.iconfinder.com/data/icons/user-icon-3-1/100/user_3_Artboard_1_copy_2-512.png" />
@@ -28,9 +27,8 @@
             </ul>
         </div>
         <div class="conteudo">
-
+            
         </div>
     </div>
-</div>
 </body>
 </html>
