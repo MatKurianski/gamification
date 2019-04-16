@@ -18,7 +18,7 @@
                     Fulado de Tal
                 </p>
             </div>
-            <ul id="abas">
+            <ul id="abas" class="fechado">
                 <li class="ativo">Início</li>
                 <li>Conquistas</li>
                 <li>Meu Perfil</li>
@@ -32,16 +32,17 @@
     </div>
 
     <script>
+        const toggle_sidebar = document.getElementById('toggle-sidebar');
+        const abas = document.getElementById('abas');
+        
         const toggleDashboard = () => {
-            const toggle = document.getElementById('toggle-sidebar');
-            const abas = document.getElementById('abas');
-
-            if (abas.style.display === 'none') {
-                toggle.text = '-';
-                abas.style.display = 'flex';
+            const classes = abas.classList;
+            if(classes.contains('fechado')) {
+                classes.remove('fechado');
+                toggle_sidebar.text = '-';
             } else {
-                toggle.text = '+';
-                abas.style.display = 'none';
+                classes.add('fechado');
+                toggle_sidebar.text = '+';
             }
         };
     </script>
