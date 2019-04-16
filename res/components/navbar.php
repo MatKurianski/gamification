@@ -55,6 +55,7 @@
 
     .navbar-itens li {
         text-align: center;
+        padding-bottom: 15px;
     }
 
     .ativa {

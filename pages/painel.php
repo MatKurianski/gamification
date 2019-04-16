@@ -18,16 +18,32 @@
                     Fulado de Tal
                 </p>
             </div>
-            <ul>
+            <ul id="abas">
                 <li class="ativo">Início</li>
                 <li>Conquistas</li>
                 <li>Meu Perfil</li>
                 <li>Sair</li>
             </ul>
+            <a onclick=toggleDashboard() id="toggle-sidebar">+</a>
         </div>
         <div class="conteudo">
             
         </div>
     </div>
+
+    <script>
+        const toggleDashboard = () => {
+            const toggle = document.getElementById('toggle-sidebar');
+            const abas = document.getElementById('abas');
+
+            if (abas.style.display === 'none') {
+                toggle.text = '-';
+                abas.style.display = 'flex';
+            } else {
+                toggle.text = '+';
+                abas.style.display = 'none';
+            }
+        };
+    </script>
 </body>
 </html>

@@ -58,3 +58,29 @@
     word-break: break-all;
     overflow-y: auto;
 }
+
+#toggle-sidebar {
+    display: none;
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        grid-template-areas: 
+        "navbar"
+        "sidebar" 
+        "conteudo";
+        grid-template-rows: auto auto 1fr;
+        grid-template-columns: auto;
+    }
+
+    .dashboard ul {
+        display: none;
+    }
+
+    #toggle-sidebar {
+        display: block;
+        margin: auto;
+        text-align: center;
+        padding: 5px 0;
+    }
+}
