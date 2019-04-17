@@ -1,0 +1,90 @@
+.container {
+    display: grid;
+    grid-template-areas: 
+        "navbar navbar"
+        "sidebar conteudo";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 250px 1fr;
+    height: 100vh;
+}
+
+.profile {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+    border: 3px solid #2C125E;
+}
+
+.profile img {
+    width: 115px;
+}
+
+.dashboard {
+    grid-area: sidebar;
+    background-color: #33146B;
+    font-family: 'PressStart';
+    color: white;
+}
+
+.dashboard ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard li {
+    display: flex;
+    border-left: 10px solid #6127CC;
+    border-bottom: 3px solid #2C125E;
+    font-size: 14px;
+    height: 80px;
+    justify-content: flex-start;
+    padding: 0px 14px;
+    align-items: center;
+    list-style: none;
+}
+
+.dashboard li:hover,
+.ativo {
+    background-image: linear-gradient(to left, #3C1880, #6127CC);
+}
+
+.conteudo {
+    background-color: rgb(95, 73, 138);
+    grid-area: conteudo;
+    word-break: break-all;
+    overflow-y: auto;
+}
+
+#toggle-sidebar {
+    display: none;
+}
+
+.fechado {
+    display: none;
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        grid-template-areas: 
+        "navbar"
+        "sidebar" 
+        "conteudo";
+        grid-template-rows: auto auto 1fr;
+        grid-template-columns: auto;
+    }
+
+    .fechado {
+        display: none !important;
+    }
+
+    #toggle-sidebar {
+        display: block;
+        margin: auto;
+        text-align: center;
+        padding: 5px 0;
+    }
+}
