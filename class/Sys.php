@@ -14,8 +14,53 @@
 			$this->dbConnection->set_charset("utf8");
 		}
 
-		public function encriptarString($string){
+		private function encriptarString($string){
 			return hash('sha256', (md5($string)));
+		}
+
+		public function mudarStatus($tabela, $registro){
+			$select = "SELECT st_$tabela as status from tb_$tabela WHERE cd_$tabela = $registro";
+			if($selectQuery = $this->dbConnection->query($select)){
+				if($selectQuery->num_rows > 0){
+					$update = "UPDATE tb_$tabela set st_$tabela = ";
+
+					$dados = $selectQuery->fetch_assoc;
+					if($dados['status'] == '1'){
+						$update .= " '0' ";
+					}
+					else if($dados['status'] == '0'){
+						$update .= " '1' ";
+					}
+					else{
+						return false;
+					}
+
+					$update .= "WHERE cd_$tabela = $registro ";
+					if($updateQuery = $this->dbConnection->query($update)){
+						return true;
+					}
+					else{
+						return true;
+					}
+				}
+				else{
+					return false;
+				}
+			}
+			else{
+				return false;
+			}
+		}
+
+		public function cadastrarMembro($nome, $senha, $cargo, $diretoria){
+			$senha = $this->encriptarString($senha);
+			$insert = "INSERT into tb_membro VALUES (null, '$nome', '$senha', '$cargo', '$diretoria', 1)";
+			if($this->dbConnection->query($insert){
+				return true;
+			}
+			else{
+				return false;
+			}
 		}
 
 		public function login($membroCd, $senha){
@@ -24,11 +69,12 @@
 			if($query = $this->dbConnection->query($select)){
 
 				if($query->num_rows > 0){
-					$data = $query->fetch_assoc();
+					$membro = $query->fetch_assoc;
+					$statusAtual = $dados['st_$tabela'];();
 					session_start();
-					$_SESSION['cd_membro'] = $data['cd_membro'];
-					$_SESSION['nm_membro'] = $data['nm_membro'];
-					$_SESSION['id_cargo'] = $data['id_cargo'];
+					$_SESSION['cd_membro'] = $membro['cd_membro'];
+					$_SESSION['nm_membro'] = $membro['nm_membro'];
+					$_SESSION['id_cargo'] = $membro['id_cargo'];
 					$_SESSION['logado'] = true;
 
 					return 0;
@@ -53,6 +99,7 @@
 			if($cd != ''){
 				$select .= "WHERE cd_membro = '$cd' ";
 			}
+			$select .= "ORDER BY nm_membro";
 			
 			if($query = $this->dbConnection->query($select)){
 				if($query->num_rows > 0){
