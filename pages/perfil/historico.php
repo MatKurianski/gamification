@@ -20,10 +20,18 @@
                 </p>
             </div>
             <ul id="abas" class="fechado">
-                <li class="ativo">Início</li>
-                <li>Conquistas</li>
-                <li>Meu Perfil</li>
-                <li>Sair</li>
+                <li class="ativo">
+                    <a class="aba" href="#">Início</a>
+                </li>
+                <li>
+                    <a class="aba" href="/pages/perfil/historico.php">Conquistas</a>
+                </li>
+                <li>
+                    <a class="aba" href="">Meu Perfil</a>
+                </li>
+                <li>
+                    <a class="aba" href="#">Sair</a>
+                </li>
             </ul>
             <a onclick=toggleDashboard() id="toggle-sidebar">+</a>
         </div>
