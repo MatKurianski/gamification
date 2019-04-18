@@ -1,0 +1,22 @@
+.conteudo {
+    padding: 25px;
+    color: white;
+    font-family: 'PressStart';
+}
+
+.historico {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    margin: auto;
+    margin-top: 25px;
+    width: 85%;
+    background-color: lightgray;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.historico tr:nth-child(even) {background-color: white;}
+
+.historico th, .historico td {
+    border-bottom: 2px solid black;
+}
