@@ -47,6 +47,11 @@
     list-style: none;
 }
 
+.aba, aba:visited, aba:hover, aba:link {
+    text-decoration: none !important;
+    color: white;
+}
+
 .dashboard li:hover,
 .ativo {
     background-image: linear-gradient(to left, #3C1880, #6127CC);
