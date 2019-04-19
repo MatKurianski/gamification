@@ -20,10 +20,10 @@
                 </p>
             </div>
             <ul id="abas" class="fechado">
-                <li class="ativo">
+                <li>
                     <a class="aba" href="#">Início</a>
                 </li>
-                <li>
+                <li class="ativo">
                     <a class="aba" href="/pages/perfil/historico.php">Conquistas</a>
                 </li>
                 <li>
