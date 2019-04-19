@@ -82,6 +82,10 @@
         grid-template-columns: auto;
     }
 
+    .conteudo {
+      overflow: visible;
+    }
+
     .fechado {
         display: none !important;
     }
