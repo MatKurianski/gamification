@@ -36,24 +36,66 @@
             <a onclick=toggleDashboard() id="toggle-sidebar">+</a>
         </div>
         <div class="conteudo">
-        <h3>Meu Histórico (últimos 30 dias)</h3>
-        <table class="historico">
-            <tr>
-                <th>Conquista</th>
-                <th>Pontos</th> 
-                <th>Data</th>
-            </tr>
-            <tr>
-                <td>Chegou a tempo!</td>
-                <td>50</td> 
-                <td>09/04/1590</td>
-            </tr>
-            <tr>
-                <td>Ajudou o próximo!</td>
-                <td>50</td> 
-                <td>09/04/1594</td>
-            </tr>
-            </table>
+            <h3>Meu Histórico (últimos 30 dias)</h3>
+            <div class="dados">
+                <table class="historico">
+                    <tr>
+                        <th>Conquista</th>
+                        <th>Pontos</th> 
+                        <th>Data</th>
+                    </tr>
+                    <tr>
+                        <td>Chegou a tempo!</td>
+                        <td>50</td> 
+                        <td>09/04/1590</td>
+                    </tr>
+                    <tr>
+                        <td>Ajudou o próximo!</td>
+                        <td>50</td> 
+                        <td>09/04/1594</td>
+                    </tr>
+                    <tr>
+                        <td>Ajudou o próximo!</td>
+                        <td>50</td> 
+                        <td>09/04/1594</td>
+                    </tr>
+                    <tr>
+                        <td>Ajudou o próximo!</td>
+                        <td>50</td> 
+                        <td>09/04/1594</td>
+                    </tr>
+                    <tr>
+                        <td>Ajudou o próximo!</td>
+                        <td>50</td> 
+                        <td>09/04/1594</td>
+                    </tr>
+                    <tr>
+                        <td>Ajudou o próximo!</td>
+                        <td>50</td> 
+                        <td>09/04/1594</td>
+                    </tr>
+                    <tr>
+                        <td>Ajudou o próximo!</td>
+                        <td>50</td> 
+                        <td>09/04/1594</td>
+                    </tr>
+                    <tr>
+                        <td>Ajudou o próximo!</td>
+                        <td>50</td> 
+                        <td>09/04/1594</td>
+                    </tr>
+                </table>
+                <table class="historico menor">
+                    <tr>
+                        <th>Total de Pontos (últimos 30 dias)</th> 
+                        <th>Total de Pontos (geral)</th>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td>150</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 
