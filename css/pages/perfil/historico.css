@@ -40,11 +40,15 @@
 .dados {
     display: flex;
     flex: 1;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: flex-end;
 }
 
 @media screen and (max-width: 992px) {
+    .dados {
+        flex-wrap: wrap;
+    }
+
     .menor {
         width: 90%;
         max-width: 600px;
