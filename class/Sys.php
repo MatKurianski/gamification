@@ -55,7 +55,18 @@
 		public function cadastrarMembro($nome, $senha, $cargo, $diretoria){
 			$senha = $this->encriptarString($senha);
 			$insert = "INSERT into tb_membro VALUES (null, '$nome', '$senha', '$cargo', '$diretoria', 1)";
-			if($this->dbConnection->query($insert){
+			if($this->dbConnection->query($insert)){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+
+		public function editarMembro($cd, $nome, $senha, $cargo, $diretoria, $status){
+			$update = "UPDATE tb_membro set nm_membro = '$nome', tx_senha = '$senha', id_cargo = '$cargo', id_diretoria = $diretoria, st_membro = $status WHERE cd_membro = $cd";
+			
+			if($this->dbConnection->query($update)){
 				return true;
 			}
 			else{
@@ -70,7 +81,6 @@
 
 				if($query->num_rows > 0){
 					$membro = $query->fetch_assoc;
-					$statusAtual = $dados['st_$tabela'];();
 					session_start();
 					$_SESSION['cd_membro'] = $membro['cd_membro'];
 					$_SESSION['nm_membro'] = $membro['nm_membro'];
