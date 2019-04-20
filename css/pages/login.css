@@ -1,0 +1,27 @@
+.palavras {
+    color: white;
+    font-family: "PressStart";
+    font-size: 15px;
+    margin: 25px 0;
+}
+.botao {
+    font-family: "PressStart";
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    border: 3px solid black;
+    width: 80px;
+    height: 30px;
+    line-height: 35px;
+    font-size: 10px;
+    margin: 25px auto;
+    color: white;
+    background-color: black;
+    box-shadow: 1px 2px 0px #000;
+    transition: 5ms;
+}
+
+.botao:hover {
+    transform: translateY(-5px);
+    transition: 5ms;
+}

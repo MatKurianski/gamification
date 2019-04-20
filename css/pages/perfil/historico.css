@@ -1,0 +1,57 @@
+.conteudo {
+    color: white;
+    font-family: 'PressStart';
+}
+
+.conteudo h3 {
+    margin: 15px;
+}
+
+.historico {
+    box-sizing: border-box;
+    border-collapse: collapse;
+    font-size: 12px;
+    color: white;
+    margin: auto;
+    margin-top: 25px;
+    width: 100%;
+    max-width: 600px;
+    background-color: #7254AB;
+    text-align: center;
+    word-break: keep-all;
+    line-height: 1.2rem;
+}
+
+.historico tr:nth-child(even) {
+    background-color: white;
+    color: black;
+}
+
+.historico th, .historico td {
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.menor {
+    width: 100%;
+    max-width: 300px;
+} 
+
+.dados {
+    display: flex;
+    flex: 1;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 992px) {
+    .dados {
+        flex-wrap: wrap;
+    }
+
+    .menor {
+        width: 90%;
+        max-width: 600px;
+        order: -1;
+    }
+}
