@@ -1,3 +1,9 @@
+<?php 
+    include '../../class/Sys.php'; 
+    $sys = new Sys();
+    $dias = 5;
+    $periodo = $sys->gerarPeriodo($dias);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +42,7 @@
             <a onclick=toggleDashboard() id="toggle-sidebar">+</a>
         </div>
         <div class="conteudo">
-            <h3>Meu Histórico (últimos 30 dias)</h3>
+            <h3>Meu Histórico (últimos <?php echo $dias; ?> dias)</h3>
             <div class="dados">
                 <table class="historico">
                     <tr>
@@ -44,55 +50,47 @@
                         <th>Pontos</th> 
                         <th>Data</th>
                     </tr>
-                    <tr>
-                        <td>Chegou a tempo!</td>
-                        <td>50</td> 
-                        <td>09/04/1590</td>
-                    </tr>
-                    <tr>
-                        <td>Ajudou o próximo!</td>
-                        <td>50</td> 
-                        <td>09/04/1594</td>
-                    </tr>
-                    <tr>
-                        <td>Ajudou o próximo!</td>
-                        <td>50</td> 
-                        <td>09/04/1594</td>
-                    </tr>
-                    <tr>
-                        <td>Ajudou o próximo!</td>
-                        <td>50</td> 
-                        <td>09/04/1594</td>
-                    </tr>
-                    <tr>
-                        <td>Ajudou o próximo!</td>
-                        <td>50</td> 
-                        <td>09/04/1594</td>
-                    </tr>
-                    <tr>
-                        <td>Ajudou o próximo!</td>
-                        <td>50</td> 
-                        <td>09/04/1594</td>
-                    </tr>
-                    <tr>
-                        <td>Ajudou o próximo!</td>
-                        <td>50</td> 
-                        <td>09/04/1594</td>
-                    </tr>
-                    <tr>
-                        <td>Ajudou o próximo!</td>
-                        <td>50</td> 
-                        <td>09/04/1594</td>
-                    </tr>
+                    <?php
+                        $itemHistorico = $sys->listarHistorico(1, $periodo);
+                        if(!empty($itemHistorico)){
+                            while($dados = $itemHistorico->fetch_object()){
+                                echo "<tr>";
+                                echo "<td>$dados->conquista</td>";
+                                echo "<td>$dados->pontos</td>";
+                                echo "<td>$dados->data</td>";
+                                echo "</tr>";
+                            }
+                        }
+                    ?>
                 </table>
                 <table class="historico menor">
                     <tr>
-                        <th>Total de Pontos (últimos 30 dias)</th> 
+                        <th>Total de Pontos (últimos <?php echo $dias ?> dias)</th> 
                         <th>Total de Pontos (geral)</th>
                     </tr>
                     <tr>
-                        <td>50</td>
-                        <td>150</td>
+                        <td>
+                            <?php
+                                $pontos = $sys->contarPontos(1, $periodo); 
+                                if(!empty($pontos)){
+                                    echo $pontos;
+                                }
+                                else{
+                                    echo "0";
+                                }
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                                $pontos = $sys->contarPontos(1); 
+                                if(!empty($pontos)){
+                                    echo $pontos;
+                                }
+                                else{
+                                    echo "0";
+                                }
+                            ?>
+                        </td>
                     </tr>
                 </table>
             </div>

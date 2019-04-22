@@ -144,6 +144,63 @@
 			}
 		}
 
+		public function gerarPeriodo($dias, $dataFinal = ''){
+
+			if($dataFinal == ''){
+				date_default_timezone_set('America/Sao_Paulo');
+				$dataFinal = date("U");
+			}
+
+			$dataInicial = strtotime("-$dias days", $dataFinal);
+
+			return [date("Y-m-d", $dataInicial), date("Y-m-d", $dataFinal)];
+		}
+
+		public function listarHistorico($membroCd, $periodo = ['', '']){
+			$select = "SELECT nm_membro as nome, ds_regra as conquista, qt_pontos as pontos, date_format(dt_pontuacao, '%d/%m/%Y') as data from tb_membro join tb_pontuacao on cd_membro = id_membro join tb_regra on cd_regra = id_regra  where cd_membro = $membroCd ";
+			if($periodo != ['', '']){
+				sort($periodo);
+				$select .= "AND (dt_pontuacao between CAST('$periodo[0]' AS DATETIME) AND CAST('$periodo[1]' AS DATETIME))";
+			}
+			if($selectQuery = $this->dbConnection->query($select)){
+				if($selectQuery->num_rows > 0){
+					return $selectQuery;
+				}
+				else{
+					return null;
+				}
+			}
+			else{
+				return null;
+			}
+		}
+
+		public function contarPontos($membroCd, $periodo = ['', '']){
+			$select = "SELECT sum(qt_pontos) as pontos from tb_membro join tb_pontuacao on cd_membro = id_membro join tb_regra on cd_regra = id_regra  where cd_membro = $membroCd ";
+			if($periodo != ['', '']){
+				sort($periodo);
+				$select .= "AND (dt_pontuacao between CAST('$periodo[0]' AS DATETIME) AND CAST('$periodo[1]' AS DATETIME))";
+			}
+			if($selectQuery = $this->dbConnection->query($select)){
+				if($selectQuery->num_rows > 0){
+					$dados = $selectQuery->fetch_object();
+
+					if(!empty($dados->pontos)){
+						return $dados->pontos;
+					}
+					else{
+						return null;
+					}
+				}
+				else{
+					return null;
+				}
+			}
+			else{
+				return null;
+			}
+		}
+
 		public function listarDiretorias($cd = ''){
 			$select = "SELECT * from tb_diretoria ";
 			if($cd != ''){
