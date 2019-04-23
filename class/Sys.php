@@ -201,6 +201,26 @@
 			}
 		}
 
+		public function cadastrarDiretoria($nome, $cor = 'lightgrey'){
+			$insert = "INSERT into tb_diretoria VALUES (null, '$nome', '$cor', '1')";
+			if($this->dbConnection->query($insert)){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+
+		public function editarDiretoria($cd, $nome, $cor, $status){
+			$update = "UPDATE tb_diretoria set nm_diretoria = $nome, ds_cor = $cor, st_diretoria = $status WHERE cd_membro = $cd";
+			if($this->dbConnection->query($update)){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+
 		public function listarDiretorias($cd = ''){
 			$select = "SELECT * from tb_diretoria ";
 			if($cd != ''){

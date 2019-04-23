@@ -2,6 +2,7 @@
     include '../../class/Sys.php'; 
     $sys = new Sys();
     $dias = 5;
+    $membroCd = 1;
     $periodo = $sys->gerarPeriodo($dias);
 ?>
 <!DOCTYPE html>
@@ -51,7 +52,7 @@
                         <th>Data</th>
                     </tr>
                     <?php
-                        $itemHistorico = $sys->listarHistorico(1, $periodo);
+                        $itemHistorico = $sys->listarHistorico($membroCd, $periodo);
                         if(!empty($itemHistorico)){
                             while($dados = $itemHistorico->fetch_object()){
                                 echo "<tr>";
@@ -60,6 +61,9 @@
                                 echo "<td>$dados->data</td>";
                                 echo "</tr>";
                             }
+                        }
+                        else{
+                            echo "<tr><td colspan='3'>Sem conquistas nos últimos $dias dias</td></tr>";
                         }
                     ?>
                 </table>
@@ -71,7 +75,7 @@
                     <tr>
                         <td>
                             <?php
-                                $pontos = $sys->contarPontos(1, $periodo); 
+                                $pontos = $sys->contarPontos($membroCd, $periodo); 
                                 if(!empty($pontos)){
                                     echo $pontos;
                                 }
@@ -82,7 +86,7 @@
                         </td>
                         <td>
                             <?php
-                                $pontos = $sys->contarPontos(1); 
+                                $pontos = $sys->contarPontos($membroCd); 
                                 if(!empty($pontos)){
                                     echo $pontos;
                                 }
