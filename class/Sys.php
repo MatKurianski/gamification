@@ -322,4 +322,18 @@
 				return null;
 			}
 		}
+
+		public function atribuirPonto($membroCd, $regraCd, $data = ''){
+			if($data == ''){
+				date_default_timezone_set('America/Sao_Paulo');
+				$data = date("Y-m-d");
+			}
+			$insert = "INSERT into tb_pontuacao VALUES (null, '$data', '$membroCd', '$regraCd')";
+			if($this->dbConnection->query($insert)){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
 	}
