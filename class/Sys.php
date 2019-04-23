@@ -160,8 +160,10 @@
 			$select = "SELECT nm_membro as nome, ds_regra as conquista, qt_pontos as pontos, date_format(dt_pontuacao, '%d/%m/%Y') as data from tb_membro join tb_pontuacao on cd_membro = id_membro join tb_regra on cd_regra = id_regra  where cd_membro = $membroCd ";
 			if($periodo != ['', '']){
 				sort($periodo);
-				$select .= "AND (dt_pontuacao between CAST('$periodo[0]' AS DATETIME) AND CAST('$periodo[1]' AS DATETIME))";
+				$select .= "AND (dt_pontuacao between CAST('$periodo[0]' AS DATETIME) AND CAST('$periodo[1]' AS DATETIME)) ";
 			}
+			$select .= " ORDER BY dt_pontuacao desc ";
+
 			if($selectQuery = $this->dbConnection->query($select)){
 				if($selectQuery->num_rows > 0){
 					return $selectQuery;
@@ -212,7 +214,7 @@
 		}
 
 		public function editarDiretoria($cd, $nome, $cor, $status){
-			$update = "UPDATE tb_diretoria set nm_diretoria = $nome, ds_cor = $cor, st_diretoria = $status WHERE cd_membro = $cd";
+			$update = "UPDATE tb_diretoria set nm_diretoria = '$nome', ds_cor = '$cor', st_diretoria = '$status' WHERE cd_membro = $cd";
 			if($this->dbConnection->query($update)){
 				return true;
 			}
@@ -226,6 +228,47 @@
 			if($cd != ''){
 				$select .= "WHERE cd_diretoria = $cd";
 			}
+			$select .= " ORDER BY nm_diretoria";
+
+			if($query = $this->dbConnection->query($select)){
+				if($query->num_rows > 0){
+					return $query;
+				}
+				else{
+					return null;
+				}
+			}
+			else{
+				return null;
+			}
+		}
+
+		public function cadastrarCargo($nome){
+			$insert = "INSERT into tb_cargo VALUES (null, '$nome', '1')";
+			if($this->dbConnection->query($insert)){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+
+		public function editarCargo($cd, $nome, $status){
+			$update = "UPDATE tb_cargo set nm_cargo = '$nome', st_cargo = '$status' WHERE cd_cargo = $cd";
+			if($this->dbConnection->query($update)){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+
+		public function listarCargos($cd = ''){
+			$select = "SELECT * from tb_cargo ";
+			if($cd != ''){
+				$select .= "WHERE cd_cargo = $cd";
+			}
+			$select .= " ORDER BY nm_cargo";
 
 			if($query = $this->dbConnection->query($select)){
 				if($query->num_rows > 0){
