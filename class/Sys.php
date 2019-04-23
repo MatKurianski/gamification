@@ -54,7 +54,7 @@
 
 		public function cadastrarMembro($nome, $senha, $cargo, $diretoria){
 			$senha = $this->encriptarString($senha);
-			$insert = "INSERT into tb_membro VALUES (null, '$nome', '$senha', '$cargo', '$diretoria', 1)";
+			$insert = "INSERT into tb_membro VALUES (null, '$nome', '$senha', '$cargo', '$diretoria', '1')";
 			if($this->dbConnection->query($insert)){
 				return true;
 			}
@@ -269,6 +269,46 @@
 				$select .= "WHERE cd_cargo = $cd";
 			}
 			$select .= " ORDER BY nm_cargo";
+
+			if($query = $this->dbConnection->query($select)){
+				if($query->num_rows > 0){
+					return $query;
+				}
+				else{
+					return null;
+				}
+			}
+			else{
+				return null;
+			}
+		}
+
+		public function cadastrarRegra($descricao, $pontos){
+			$insert = "INSERT into tb_regra VALUES (null, '$descricao', '$pontos', '1')";
+			if($this->dbConnection->query($insert)){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+
+		public function editarRegra($cd, $descricao, $pontos, $status){
+			$update = "UPDATE tb_regra set ds_regra = '$descricao', qt_pontos = '$pontos', st_regra = '$status' WHERE cd_regra = $cd";
+			if($this->dbConnection->query($update)){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+
+		public function listarRegra($cd = ''){
+			$select = "SELECT * from tb_regra ";
+			if($cd != ''){
+				$select .= "WHERE cd_regra = $cd ";
+			}
+			$select .= "ORDER BY qt_pontos, ds_regra ";
 
 			if($query = $this->dbConnection->query($select)){
 				if($query->num_rows > 0){
