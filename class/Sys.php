@@ -336,4 +336,14 @@
 				return false;
 			}
 		}
+
+		public function excluirPontuacao($pontuacaoCd){
+			$delete = "DELETE from tb_pontuacao where cd_pontuacao = $pontuacaoCd";
+			if($this->dbConnection->query($delete)){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
 	}
