@@ -1,3 +1,9 @@
+/*      fundo-cartão   fundo-cargo    fundo-nome    fundo-borda
+  P:       #4D6C80       #99D8FF       #3D95CC        #265D80
+  M:       
+  FP:
+*/
+
 .portrait {
   display: block;
   box-sizing: content-box;
@@ -6,8 +12,9 @@
   width: 250px;
   height: 320px;
   margin: auto;
-  border: 5px solid #21205B;
-  background-color: #2C2B6A	;
+  border: 5px solid #265D80;
+  background-color: #4D6C80;
+  margin-top: 50px;
 }
 
 .foto {
@@ -25,7 +32,6 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  background-color: #A1A1CA;
   height: 95px;
   width: 250px;
   border-radius: inherit;
@@ -42,7 +48,7 @@
   width: inherit;
   height: 65px;
   font-family: 'PressStart';
-  background-color: #4E4D89;
+  background-color: #3D95CC;
   color: white;
   text-align: center;
   line-height: 30px;
@@ -57,6 +63,7 @@
   width: inherit;
   font-size: 14px;
   height: 30px;
-  color: white;
+  color: black;
+  background-color: #99D8FF;
   font-family: 'PressStart';
 }
