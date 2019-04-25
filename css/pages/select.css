@@ -4,6 +4,12 @@
   FP:
 */
 
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 .portrait {
   display: block;
   box-sizing: content-box;
@@ -11,7 +17,6 @@
   position: relative;
   width: 250px;
   height: 320px;
-  margin: auto;
   border: 5px solid #265D80;
   background-color: #4D6C80;
   margin-top: 50px;
