@@ -80,7 +80,7 @@
 			if($query = $this->dbConnection->query($select)){
 
 				if($query->num_rows > 0){
-					$membro = $query->fetch_assoc;
+					$membro = $query->fetch_assoc();
 					session_start();
 					$_SESSION['cd_membro'] = $membro['cd_membro'];
 					$_SESSION['nm_membro'] = $membro['nm_membro'];
