@@ -42,7 +42,8 @@
             <a onclick=toggleDashboard() id="toggle-sidebar">+</a>
         </div>
         <div class="conteudo">
-            <h3>Meu Histórico (últimos <?php echo $dias; ?> dias)</h3>
+            <h3>Meu Histórico</h3>
+            <h5>(últimos <?php echo $dias; ?> dias)</h5>
             <div class="dados">
                 <table class="historico">
                     <tr>
