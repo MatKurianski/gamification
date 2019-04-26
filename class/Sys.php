@@ -105,7 +105,7 @@
 		}
 
 		public function listarMembros($cd = ''){
-			$select = "SELECT * from tb_membro join tb_cargo on id_cargo = cd_cargo ";
+			$select = "SELECT * from tb_diretoria join tb_membro on id_diretoria = cd_diretoria join tb_cargo on id_cargo = cd_cargo ";
 			if($cd != ''){
 				$select .= "WHERE cd_membro = '$cd' ";
 			}
@@ -125,11 +125,11 @@
 		}
 
 		public function listarMembrosPorDiretoria($diretoria = ''){
-			$select = "SELECT * from tb_membro join tb_cargo on id_cargo = cd_cargo ";
+			$select = "SELECT * from tb_diretoria join tb_membro on id_diretoria = cd_diretoria join tb_cargo on id_cargo = cd_cargo ";
 			if($diretoria != ''){
 				$select .= "WHERE id_diretoria = '$diretoria' ";
 			}
-			$select .= " ORDER BY id_diretoria, nm_membro ";
+			$select .= " ORDER BY nm_diretoria, nm_membro ";
 			
 			if($query = $this->dbConnection->query($select)){
 				if($query->num_rows > 0){
@@ -153,12 +153,13 @@
 
 			$dataInicial = strtotime("-$dias days", $dataFinal);
 
-			return [date("Y-m-d", $dataInicial), date("Y-m-d", $dataFinal)];
+			return [date("Y-m-d H:i:s", $dataInicial), date("Y-m-d H:i:s", $dataFinal)];
 		}
 
-		public function listarHistorico($membroCd, $periodo = ['', '']){
-			$select = "SELECT nm_membro as nome, ds_regra as conquista, qt_pontos as pontos, date_format(dt_pontuacao, '%d/%m/%Y') as data from tb_membro join tb_pontuacao on cd_membro = id_membro join tb_regra on cd_regra = id_regra  where cd_membro = $membroCd ";
-			if($periodo != ['', '']){
+		public function listarHistorico($membroCd, $dias = ''){
+			$select = "SELECT ds_regra as conquista, qt_pontos as pontos, date_format(dt_pontuacao, '%d/%m/%Y às %H:%i') as data from tb_membro join tb_pontuacao on cd_membro = id_membro join tb_regra on cd_regra = id_regra  where cd_membro = $membroCd ";
+			if($dias != ''){
+				$periodo = $this->gerarPeriodo($dias);
 				sort($periodo);
 				$select .= "AND (dt_pontuacao between CAST('$periodo[0]' AS DATETIME) AND CAST('$periodo[1]' AS DATETIME)) ";
 			}
@@ -177,9 +178,10 @@
 			}
 		}
 
-		public function contarPontos($membroCd, $periodo = ['', '']){
-			$select = "SELECT sum(qt_pontos) as pontos from tb_membro join tb_pontuacao on cd_membro = id_membro join tb_regra on cd_regra = id_regra  where cd_membro = $membroCd ";
-			if($periodo != ['', '']){
+		public function contarPontos($membroCd, $dias = ''){
+			$select = "SELECT sum(qt_pontos) as pontos from tb_pontuacao join tb_regra on cd_regra = id_regra  where id_membro = $membroCd ";
+			if($dias != ''){
+				$periodo = $this->gerarPeriodo($dias);
 				sort($periodo);
 				$select .= "AND (dt_pontuacao between CAST('$periodo[0]' AS DATETIME) AND CAST('$periodo[1]' AS DATETIME))";
 			}
@@ -193,6 +195,27 @@
 					else{
 						return null;
 					}
+				}
+				else{
+					return null;
+				}
+			}
+			else{
+				return null;
+			}
+		}
+
+		public function listarRanking($limite, $dias = ''){
+			$select = "SELECT nm_membro as nome, sum(qt_pontos) as pontos from tb_membro join tb_pontuacao on cd_membro = id_membro join tb_regra on cd_regra = id_regra ";
+			if($dias != ''){
+				$periodo = $this->gerarPeriodo($dias);
+				sort($periodo);
+				$select .= "WHERE (dt_pontuacao between CAST('$periodo[0]' AS DATETIME) AND CAST('$periodo[1]' AS DATETIME)) ";
+			}
+			$select .= "GROUP BY cd_membro ORDER BY pontos DESC LIMIT $limite ";			
+			if($selectQuery = $this->dbConnection->query($select)){
+				if($selectQuery->num_rows > 0){
+					return $selectQuery;
 				}
 				else{
 					return null;
@@ -303,7 +326,7 @@
 			}
 		}
 
-		public function listarRegra($cd = ''){
+		public function listarRegras($cd = ''){
 			$select = "SELECT * from tb_regra ";
 			if($cd != ''){
 				$select .= "WHERE cd_regra = $cd ";
