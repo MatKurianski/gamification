@@ -24,7 +24,6 @@
         justify-content: center;
         align-items: center;
         font-family: 'PressStart';
-        grid-area: navbar;
         flex-wrap: wrap;
         font-size: 16px;
         color: white;

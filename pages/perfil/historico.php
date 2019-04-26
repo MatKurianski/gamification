@@ -18,7 +18,6 @@
 </head>
 <body>
     <div class="container">
-        <?php include '../../res/components/navbar.php';?>
         <div class="dashboard">
             <div class="profile">
                 <img src="https://cdn3.iconfinder.com/data/icons/user-icon-3-1/100/user_3_Artboard_1_copy_2-512.png" />
@@ -43,7 +42,8 @@
             <a onclick=toggleDashboard() id="toggle-sidebar">+</a>
         </div>
         <div class="conteudo">
-            <h3>Meu Histórico (últimos <?php echo $dias; ?> dias)</h3>
+            <h3>Meu Histórico</h3>
+            <h5>(últimos <?php echo $dias; ?> dias)</h5>
             <div class="dados">
                 <table class="historico">
                     <tr>

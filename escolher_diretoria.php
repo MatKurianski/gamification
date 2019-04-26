@@ -16,7 +16,7 @@
 			$query = $sys->listarDiretorias();
 			if(!empty($query)){
 				while($diretoria = $query->fetch_object()){
-					echo "<a class='botao' href='escolher_membro.php?cd=$diretoria->cd_diretoria' style='background-color: $diretoria->ds_cor'>";
+					echo "<a class='botao' href='pages/select.php?cd=$diretoria->cd_diretoria' style='background-color: $diretoria->ds_cor'>";
 					echo $diretoria->nm_diretoria;
 					echo "</a><br>";
 				}
