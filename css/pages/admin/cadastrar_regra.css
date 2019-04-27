@@ -28,7 +28,7 @@ h3 {
 table {
     width: 90%;
     text-align: center;
-    margin: 15px 0;
+    margin: 12px 0;
 }
 
 table,th, td {
@@ -78,4 +78,15 @@ table,
   background-color: purple;
   color: white;
   border-radius: 5px;
+}
+
+@media only screen and (max-width: 992px) {
+  .regras {
+    width: 95%;
+    border-radius: 2;
+  }
+
+  table {
+    width: 100%;
+  }
 }
