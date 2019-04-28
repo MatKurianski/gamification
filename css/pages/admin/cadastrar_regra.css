@@ -47,11 +47,11 @@ table, th, td {
     width: 75px;
 }
 
-#enviar, 
-#enviar:visited,
-#enviar:hover,
-#enviar:link,
-#enviar:any-link {
+.enviar, 
+.enviar:visited,
+.enviar:hover,
+.enviar:link,
+.enviar:any-link {
     display: block;
     background-color: green;
     padding: 6px 12px;
@@ -67,10 +67,6 @@ table,
     margin: auto;
 }
 
-.oculto {
-  display: none;
-}
-
 .texto-adicionar-regra {
   width: fit-content;
   margin: auto;
@@ -79,6 +75,10 @@ table,
   background-color: purple;
   color: white;
   border-radius: 5px;
+}
+
+.oculto {
+  display: none !important;
 }
 
 @media only screen and (max-width: 992px) {

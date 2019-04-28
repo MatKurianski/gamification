@@ -66,10 +66,10 @@
                                     while($regra = $regras->fetch_object()) {
                                         echo "<tr>";
                                             echo "<td>";
-                                                echo $regra->ds_regra;
+                                                echo "<input onclick=\"definirComoModificado($regra->cd_regra)\" value=\"$regra->ds_regra\"></input>";
                                             echo "</td>";
                                             echo "<td>";
-                                                echo $regra->qt_pontos;
+                                                echo "<input value=\"$regra->qt_pontos\" type=\"number\"></input>";
                                             echo "</td>";
                                             echo "<td>";
                                                 echo $regra->st_regra;
@@ -78,6 +78,11 @@
                                     }
                                 }
                             ?>
+                            <tr>
+                                <td colspan=3>
+                                    <a href="#" id="update" class="enviar oculto">Atualizar</a>
+                                </td>
+                            </tr>
                         </tr>
                     </table>
                 </div>
@@ -101,7 +106,7 @@
                         </tr>
                         <tr>
                             <td colspan=2>
-                                <a href="#" id="enviar" class="oculto">Enviar</a>
+                                <a href="#" class="enviar oculto">Enviar</a>
                             </td>
                         </tr>
                     </table>
@@ -113,6 +118,18 @@
     <script>
         const toggle_sidebar = document.getElementById('toggle-sidebar');
         const abas = document.getElementById('abas');
+        const botao_update = document.getElementById('update');
+
+        let modificados = [];
+
+        const definirComoModificado = (cd) => {
+            botao_update.classList.remove('oculto');
+            const modificados_novo = [...modificados];
+            const duplicados = modificados_novo.filter(atual => atual === cd);
+            if(duplicados.length !== 0) return;
+            modificados_novo.push(cd);
+            modificados = modificados_novo;
+        };
         
         const toggleDashboard = () => {
             const classes = abas.classList;
