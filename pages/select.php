@@ -26,7 +26,7 @@
           $query = $sys->listarMembrosPorDiretoria($_GET['cd']);
           if(!empty($query)) {
             while($membro = $query->fetch_object()) {
-              echo "<div class=\"portrait\" onclick=\"window.location.href = '/login_sozinho.php?cd=$membro->cd_membro&diretoria=$diretoria->cd_diretoria'\">";
+              echo "<div \" class=\"portrait\" onclick=\"window.location.href = '/login_sozinho.php?cd=$membro->cd_membro&diretoria=$diretoria->cd_diretoria'\">";
                 echo "<div class=\"foto\">";
                   echo "<img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp2SPzeEh9A9nuLWiTwKRn7P3PY3l6Q70IWaO0a3mykyn106hRzg\" >";
                 echo "</div>";
@@ -34,7 +34,7 @@
                   echo "<div class=\"cargo\">";
                     echo $membro->nm_cargo;
                   echo "</div>";
-                  echo "<div class=\"nome\">";
+                  echo "<div style=\"background-color: $diretoria->ds_cor;\" class=\"nome\">";
                     echo $membro->nm_membro;
                   echo "</div>";
                 echo "</div>";
