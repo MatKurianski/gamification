@@ -18,6 +18,7 @@
 }
 
 .nova-tabela {
+  margin-bottom: 25px;
   width: 100%;
   text-align: center;
   height: 1.5rem;
@@ -41,4 +42,9 @@
   color: white;
   border: none;
   font-size: 1.2rem;
+}
+
+.titulo {
+  background-color: purple;
+  color: white;
 }

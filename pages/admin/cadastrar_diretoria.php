@@ -1,7 +1,7 @@
 <?php 
     include '../../class/Sys.php'; 
     $sys = new Sys();
-    $regras = $sys->listarRegras();
+    $diretorias = $sys->listarDiretorias();
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,14 +20,48 @@
         <div class="conteudo">
           <div class="area-diretoria">
               <table class="nova-tabela">
-              <form>
+                  <tr>
+                    <th class="titulo" colspan="2">
+                      Diretorias Atuais
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      Nome
+                    </th>
+                    <th>
+                      Cor
+                    </th>
+                  </tr>
+                  <?php 
+                    if(!empty($diretorias)) {
+                      while($diretoria = $diretorias->fetch_object()) {
+                          echo "<tr>";
+                          echo "<td>";
+                              echo "$diretoria->nm_diretoria";
+                          echo "</td>";
+                          echo "<td>";
+                              echo "<span style=\"color: $diretoria->ds_cor\"> $diretoria->ds_cor</span>";
+                          echo "</td>";
+                          echo "</tr>";
+                      }
+                  }
+                  ?>
+              </table>
+              <table class="nova-tabela">
+              <form method="post" action="/actions/cadastra_diretoria.php">
+              <tr>
+                  <th class="titulo">
+                    Adicionar diretoria
+                  </th>
+                </tr>
                 <tr>
                   <th>
                     Nome da diretoria
                   </th>
                 </tr>
                   <td>
-                    <input type="text" placeholder="Insira aqui um nome" id="nome-diretoria" />
+                    <input name="nm_diretoria" type="text" placeholder="Insira aqui um nome" id="nome-diretoria" />
                   </td>
                 </tr>
                 <tr>
@@ -37,7 +71,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <input type="color" id="color-picker"/>
+                    <input name="ds_cor"" type="color" id="color-picker"/>
                   </td>
                 </tr>
                 <tr>
