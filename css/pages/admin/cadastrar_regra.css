@@ -58,7 +58,7 @@ table, th, td {
     text-decoration: none;
     color: white;
     margin: auto;
-    width: auto;
+    width: 100%;
 }
 
 .regras,
