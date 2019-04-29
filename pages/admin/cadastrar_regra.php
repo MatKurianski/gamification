@@ -87,7 +87,7 @@
                     </table>
                 </div>
                 <hr />
-                <form id="form-regras">
+                <form method="post" action="/actions/cadastra_regra.php" id="form-regras">
                     <h3 onclick="toggleAdcRegra()" class="texto-adicionar-regra">
                         Adicionar nova regra
                     </h3>
@@ -96,17 +96,17 @@
                             <th>Nome da Regra</th>
                             <th class="pontos">Pontos</th>
                         </tr>
-                        <tr> 
+                        <tr>
                             <td>
-                                <input class="input-nome" placeholder="Escreva o nome da regra aqui"></input>
+                                <input name="ds_regra" class="input-nome" placeholder="Escreva o nome da regra aqui"></input>
                             </td>
                             <td class="pontos">
-                                <input class="input-pontos" type="number"></input>
+                                <input name="qt_pontos" value="0" class="input-pontos" type="number"></input>
                             </td>
                         </tr>
                         <tr>
                             <td colspan=2>
-                                <a href="#" class="enviar oculto">Enviar</a>
+                                <button type="submit" class="enviar">Enviar</button>
                             </td>
                         </tr>
                     </table>
