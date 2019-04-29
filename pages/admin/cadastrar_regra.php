@@ -91,32 +91,6 @@
     </div>
 
     <script>
-        const toggle_sidebar = document.getElementById('toggle-sidebar');
-        const abas = document.getElementById('abas');
-        const botao_update = document.getElementById('update');
-
-        let modificados = [];
-
-        const definirComoModificado = (cd) => {
-            botao_update.classList.remove('oculto');
-            const modificados_novo = [...modificados];
-            const duplicados = modificados_novo.filter(atual => atual === cd);
-            if(duplicados.length !== 0) return;
-            modificados_novo.push(cd);
-            modificados = modificados_novo;
-        };
-        
-        const toggleDashboard = () => {
-            const classes = abas.classList;
-            if(classes.contains('fechado')) {
-                classes.remove('fechado');
-                toggle_sidebar.text = '-';
-            } else {
-                classes.add('fechado');
-                toggle_sidebar.text = '+';
-            }
-        };
-
         const adc_regra = document.getElementById('tabela-adicionar-regra');
 
         const toggleAdcRegra = () => {
