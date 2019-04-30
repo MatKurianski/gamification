@@ -18,8 +18,8 @@
     <div class="container">
       <?php include '../../res/components/sidebar.php'; ?>
         <div class="conteudo">
-            <div class="regras">
-                <div class="lista-regras">
+            <div class="corpo">
+                <div class="lista">
                     <h3>
                         Regras atuais
                     </h3>

@@ -8,7 +8,8 @@ input::placeholder {
     outline: none;
     border: none;
 }
-.regras {
+.corpo {
+    margin: auto;
     width: 90%;
     padding: 10px 0;
     border-radius: 10px;
@@ -61,7 +62,7 @@ table, th, td {
     width: 100%;
 }
 
-.regras,
+.lista,
 table,
 #form {
     margin: auto;
