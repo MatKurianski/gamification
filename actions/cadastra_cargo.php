@@ -5,4 +5,5 @@
     $nm_cargo = $_POST['nm_cargo'];
     $sys->cadastrarCargo($nm_cargo);
   }
+  header("Location: /pages/admin/cadastrar_cargo.php");
 ?>

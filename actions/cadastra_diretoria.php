@@ -6,4 +6,5 @@
     $ds_cor = $_POST['ds_cor'];
     $sys->cadastrarDiretoria($nm_diretoria, $ds_cor);
   }
+  header("Location: /pages/admin/cadastrar_diretoria.php");
 ?>

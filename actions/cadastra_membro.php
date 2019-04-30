@@ -9,4 +9,5 @@
     
     $sys->cadastrarMembro($nm_usuario, 1234, $cd_cargo, $cd_diretoria);
   }
+  header("Location: /pages/admin/membros.php");
 ?>

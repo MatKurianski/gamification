@@ -6,4 +6,5 @@
     $qt_pontos = $_POST['qt_pontos'];
 		$sys->cadastrarRegra($ds_regra, $qt_pontos);
   }
+  header("Location: /pages/admin/cadastrar_regra.php");
 ?>
