@@ -30,6 +30,9 @@
         <li>
             <a class="aba" href="/pages/admin/cadastrar_cargo.php">Cargos</a>
         </li>
+        <li>
+            <a class="aba" href="/pages/admin/membros.php">Membros</a>
+        </li>
     </ul>
     <a onclick=toggleDashboard() id="toggle-sidebar">+</a>
 </div>

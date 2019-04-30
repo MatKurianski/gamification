@@ -18,6 +18,57 @@
     <div class="container">
       <?php include '../../res/components/sidebar.php'; ?>
         <div class="conteudo">
+						<div class="corpo">
+						<h3>
+							Atribuir conquista a membro
+						</h3>
+						<form method="post" action="/actions/atribui_regra.php" id="form">
+							<table>
+									<tr>
+										<th>
+											Nome do membro
+										</th>
+										<th>
+											Regra
+										</th>
+									</tr>
+									<tr>
+										<td>
+											<select name="cd_membro">
+											<?php
+													$membros_opcoes = $sys->listarMembros();
+
+													if(!empty($membros_opcoes)) {
+														while($membro = $membros_opcoes->fetch_object()) { 
+															echo "<option value=$membro->cd_membro>$membro->nm_membro</option>";
+														}
+													}
+											?>
+											</select>
+										</td>
+										<td>
+											<select name="cd_regra">
+												<?php 
+													$regras = $sys->listarRegras();
+
+													if(!empty($regras)) {
+														while($regra = $regras->fetch_object()) { 
+															echo "<option value=$regra->cd_regra>$regra->ds_regra</option>";
+														}
+													}
+												?>
+											</select>
+										</td>
+									</tr>
+									<tr>
+									  <td colspan=2>
+											<button type="submit" class="enviar">Atribuir!</button>
+										</td>
+									</tr>
+								</table>
+							</form>
+						</div>
+						<br /><br />
             <div class="corpo">
                 <div class="lista">
                     <h3>

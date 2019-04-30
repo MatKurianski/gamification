@@ -1,5 +1,5 @@
 <?php 
-    include "/class/Sys.php"; 
+    include "../../class/Sys.php"; 
     $sys = new Sys();
     $diretorias = $sys->listarDiretorias();
 ?>
