@@ -27,6 +27,9 @@
         <li>
             <a class="aba" href="/pages/admin/cadastrar_diretoria.php">Diretorias</a>
         </li>
+        <li>
+            <a class="aba" href="/pages/admin/cadastrar_cargo.php">Cargos</a>
+        </li>
     </ul>
     <a onclick=toggleDashboard() id="toggle-sidebar">+</a>
 </div>

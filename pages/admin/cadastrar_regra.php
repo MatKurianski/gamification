@@ -41,10 +41,10 @@
                                     while($regra = $regras->fetch_object()) {
                                         echo "<tr>";
                                             echo "<td>";
-                                                echo "<input value=\"$regra->ds_regra\"></input>";
+                                                echo "<p>$regra->ds_regra</p>";
                                             echo "</td>";
                                             echo "<td>";
-                                                echo "<input value=\"$regra->qt_pontos\" type=\"number\"></input>";
+                                                echo "<p>$regra->qt_pontos</p>";
                                             echo "</td>";
                                             echo "<td>";
                                                 if($regra->st_regra) echo "Sim";

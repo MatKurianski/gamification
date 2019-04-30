@@ -41,10 +41,10 @@
                                     while($diretoria = $diretorias->fetch_object()) {
                                         echo "<tr>";
                                             echo "<td>";
-                                                echo "<input value=\"$diretoria->nm_diretoria\"></input>";
+                                                echo "<p>$diretoria->nm_diretoria\"</p>";
                                             echo "</td>";
                                             echo "<td>";
-                                                echo "<input style=\"color: $diretoria->ds_cor\" value=\"$diretoria->ds_cor\"></input>";
+                                                echo "<p style=\"color: $diretoria->ds_cor\">$diretoria->ds_cor></p>";
                                             echo "</td>";
                                             echo "<td>";
                                                 if($diretoria->st_diretoria) echo "Sim";

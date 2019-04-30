@@ -39,7 +39,7 @@
                                     while($cargo = $cargos->fetch_object()) {
                                         echo "<tr>";
                                             echo "<td>";
-                                                echo "<input value=\"$cargo->nm_cargo\"></input>";
+                                                echo "<p>$cargo->nm_cargo</p>";
                                             echo "</td>";
                                             echo "<td>";
                                                 if ($cargo->st_cargo) echo "Sim";
