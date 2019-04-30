@@ -13,9 +13,6 @@
             <a class="aba" href="/pages/perfil/historico.php">Conquistas</a>
         </li>
         <li>
-            <a class="aba" href="">Meu Perfil</a>
-        </li>
-        <li>
             <a class="aba" href="#">Sair</a>
         </li>
         <li class="ativo">
