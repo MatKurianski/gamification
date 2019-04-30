@@ -1,7 +1,7 @@
 <?php 
     include '../../class/Sys.php'; 
     $sys = new Sys();
-    $regras = $sys->listarRegras();
+    $cargos = $sys->listarCargos();
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/css/common.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/pages/painel.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/pages/admin/cadastro.css">
+
 </head>
 <body>
     <div class="container">
@@ -21,7 +22,7 @@
             <div class="regras">
                 <div class="lista-regras">
                     <h3>
-                        Regras atuais
+                        Cargos atuais
                     </h3>
                     <table>
                         <tr>
@@ -29,26 +30,20 @@
                                 Nome
                             </th>
                             <th>
-                                Pontos
-                            </th>
-                            <th>
-                                Ativa?
+                                Ativo?
                             </th>
                         </tr>
                         <tr>
                             <?php 
-                                if(!empty($regras)) {
-                                    while($regra = $regras->fetch_object()) {
+                                if(!empty($cargos)) {
+                                    while($cargo = $cargos->fetch_object()) {
                                         echo "<tr>";
                                             echo "<td>";
-                                                echo "<input value=\"$regra->ds_regra\"></input>";
+                                                echo "<input value=\"$cargo->nm_cargo\"></input>";
                                             echo "</td>";
                                             echo "<td>";
-                                                echo "<input value=\"$regra->qt_pontos\" type=\"number\"></input>";
-                                            echo "</td>";
-                                            echo "<td>";
-                                                if($regra->st_regra) echo "Sim";
-                                                else echo "Nao";
+                                                if ($cargo->st_cargo) echo "Sim";
+                                                else echo "Não";
                                             echo "</td>";
                                         echo "</tr>";
                                     }
@@ -58,21 +53,17 @@
                     </table>
                 </div>
                 <hr />
-                <form method="post" action="/actions/cadastra_regra.php" id="form">
+                <form method="post" action="/actions/cadastra_cargo.php" id="form">
                     <h3 onclick="toggleAdc()" class="texto-adicionar">
-                        Adicionar nova regra
+                        Adicionar novo cargo
                     </h3>
                     <table id="tabela-adicionar" class="oculto">
                         <tr>
-                            <th>Nome da Regra</th>
-                            <th class="pontos">Pontos</th>
+                            <th>Nome do Cargo</th>
                         </tr>
                         <tr>
                             <td>
-                                <input name="ds_regra" class="input-nome" placeholder="Escreva o nome da regra aqui"></input>
-                            </td>
-                            <td class="pontos">
-                                <input name="qt_pontos" value="0" class="input-pontos" type="number"></input>
+                                <input name="nm_cargo" class="input-nome" placeholder="Escreva o nome do cargo aqui"></input>
                             </td>
                         </tr>
                         <tr>

@@ -63,11 +63,11 @@ table, th, td {
 
 .regras,
 table,
-#form-regras {
+#form {
     margin: auto;
 }
 
-.texto-adicionar-regra {
+.texto-adicionar {
   width: fit-content;
   margin: auto;
   margin-bottom: 25px;
