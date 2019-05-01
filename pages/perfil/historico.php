@@ -3,7 +3,6 @@
     $sys = new Sys();
     $dias = 5;
     $membroCd = 1;
-    $periodo = $sys->gerarPeriodo($dias);
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,7 +51,7 @@
                         <th>Data</th>
                     </tr>
                     <?php
-                        $itemHistorico = $sys->listarHistorico($membroCd, $periodo);
+                        $itemHistorico = $sys->listarHistorico($membroCd, $dias);
                         if(!empty($itemHistorico)){
                             while($dados = $itemHistorico->fetch_object()){
                                 echo "<tr>";
@@ -75,7 +74,7 @@
                     <tr>
                         <td>
                             <?php
-                                $pontos = $sys->contarPontos($membroCd, $periodo); 
+                                $pontos = $sys->contarPontos($membroCd, $dias); 
                                 if(!empty($pontos)){
                                     echo $pontos;
                                 }
