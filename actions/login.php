@@ -14,5 +14,6 @@
 		else if($logar == 2){
 			echo "Usuário ou senha incorretos";
 			echo "<a href='../escolher_diretoria.php'>Início</a>";
-		}
+    }
+    header("Location: /pages/perfil/historico.php");
 	}
