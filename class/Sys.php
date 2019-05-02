@@ -24,7 +24,7 @@
 				if($selectQuery->num_rows > 0){
 					$update = "UPDATE tb_$tabela set st_$tabela = ";
 
-					$dados = $selectQuery->fetch_assoc;
+					$dados = $selectQuery->fetch_assoc();
 					if($dados['status'] == '1'){
 						$update .= " '0' ";
 					}
@@ -109,7 +109,7 @@
 			if($cd != ''){
 				$select .= "WHERE cd_membro = '$cd' ";
 			}
-			$select .= "ORDER BY nm_membro";
+			$select .= "ORDER BY st_membro DESC, nm_membro ASC";
 			
 			if($query = $this->dbConnection->query($select)){
 				if($query->num_rows > 0){
@@ -129,7 +129,7 @@
 			if($diretoria != ''){
 				$select .= "WHERE id_diretoria = '$diretoria' ";
 			}
-			$select .= " ORDER BY nm_diretoria, nm_membro ";
+			$select .= " ORDER BY st_membro DESC, nm_diretoria ASC, nm_membro ASC";
 			
 			if($query = $this->dbConnection->query($select)){
 				if($query->num_rows > 0){
@@ -251,7 +251,7 @@
 			if($cd != ''){
 				$select .= "WHERE cd_diretoria = $cd";
 			}
-			$select .= " ORDER BY nm_diretoria";
+			$select .= " ORDER BY st_diretoria DESC, nm_diretoria ASC";
 
 			if($query = $this->dbConnection->query($select)){
 				if($query->num_rows > 0){
@@ -291,7 +291,7 @@
 			if($cd != ''){
 				$select .= "WHERE cd_cargo = $cd";
 			}
-			$select .= " ORDER BY nm_cargo";
+			$select .= " ORDER BY st_cargo DESC, nm_cargo ASC";
 
 			if($query = $this->dbConnection->query($select)){
 				if($query->num_rows > 0){
@@ -331,7 +331,7 @@
 			if($cd != ''){
 				$select .= "WHERE cd_regra = $cd ";
 			}
-			$select .= "ORDER BY qt_pontos, ds_regra ";
+			$select .= "ORDER BY st_regra DESC, qt_pontos ASC, ds_regra ASC ";
 
 			if($query = $this->dbConnection->query($select)){
 				if($query->num_rows > 0){
@@ -349,7 +349,7 @@
 		public function atribuirPonto($membroCd, $regraCd, $data = ''){
 			if($data == ''){
 				date_default_timezone_set('America/Sao_Paulo');
-				$data = date("Y-m-d");
+				$data = date("Y-m-d H:i:s");
 			}
 			$insert = "INSERT into tb_pontuacao VALUES (null, '$data', '$membroCd', '$regraCd')";
 			if($this->dbConnection->query($insert)){

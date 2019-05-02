@@ -6,14 +6,16 @@
 		if($logar == 0){
 			echo "logado como ".$_SESSION['nm_membro'];
 			echo "<a href='logout.php'>Sair</a>";
+			header("Location: /pages/perfil/historico.php");
 		}
 		else if($logar == 1){
 			echo "Não foi possível fazer login, tente novamente mais tarde";
 			echo "<a href='../escolher_diretoria.php'>Início</a>";
+			header("Location: /index.php");
 		}
 		else if($logar == 2){
 			echo "Usuário ou senha incorretos";
 			echo "<a href='../escolher_diretoria.php'>Início</a>";
-    }
-    header("Location: /pages/perfil/historico.php");
+			header("Location: /index.php");
+    	}
 	}

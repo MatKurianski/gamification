@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sintese Game Jr.</title>
+    <title>Sintese Game Jr. | Regras</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/common.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/pages/painel.css">
@@ -34,6 +34,11 @@
                             <th>
                                 Ativa?
                             </th>
+                            <?php
+                                if($user->id_cargo == 3 or $user->id_cargo == 4 or $user->id_cargo == 5){
+                                    echo "<th></th>";
+                                }
+                            ?>
                         </tr>
                         <tr>
                             <?php 
@@ -46,17 +51,39 @@
                                             echo "<td>";
                                                 echo "<p>$regra->qt_pontos</p>";
                                             echo "</td>";
-                                            echo "<td>";
-                                                if($regra->st_regra) echo "Sim";
-                                                else echo "Nao";
-                                            echo "</td>";
+                                            if($regra->st_regra){
+                                                echo "<td>";
+                                                    echo "<p style='color: green'>Sim</p>";
+                                                echo "</td>";
+                                                if($user->id_cargo == 3 or $user->id_cargo == 4 or $user->id_cargo == 5){
+                                                    echo "<td>";
+                                                        echo "<a href='/actions/mudar_status.php?tb=regra&cd=$regra->cd_regra&local=/pages/admin/cadastrar_regra.php'>Desativar</a>";
+                                                    echo "</td>";
+                                                }
+                                            }
+                                            else{
+                                                echo "<td>";
+                                                    echo "<p style='color: red'>Não</p>";
+                                                echo "</td>";
+                                                if($user->id_cargo == 3 or $user->id_cargo == 4 or $user->id_cargo == 5){
+                                                    echo "<td>";
+                                                        echo "<a href='/actions/mudar_status.php?tb=regra&cd=$regra->cd_regra&local=/pages/admin/cadastrar_regra.php'>Ativar</a>";
+                                                    echo "</td>";
+                                                }
+                                            }
                                         echo "</tr>";
                                     }
+                                }
+                                else{
+                                    echo "<tr><td colspan='4'>Sem regras</td><tr>";
                                 }
                             ?>
                         </tr>
                     </table>
                 </div>
+                <?php
+                    if($user->id_cargo == 3 or $user->id_cargo == 4 or $user->id_cargo == 5){
+                ?>
                 <hr />
                 <form method="post" action="/actions/cadastra_regra.php" id="form">
                     <h3 onclick="toggleAdc()" class="texto-adicionar">
@@ -69,7 +96,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input name="ds_regra" class="input-nome" placeholder="Escreva o nome da regra aqui"></input>
+                                <input name="ds_regra" class="input-nome" placeholder="Escreva a regra aqui" required></input>
                             </td>
                             <td class="pontos">
                                 <input name="qt_pontos" value="0" class="input-pontos" type="number"></input>
@@ -82,6 +109,9 @@
                         </tr>
                     </table>
                 </form>
+                <?php
+                    }
+                ?>
             </div>
         </div>
     </div>

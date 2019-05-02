@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sintese Game Jr.</title>
+    <title>Sintese Game Jr. | Cargos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/common.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/pages/painel.css">
@@ -32,6 +32,11 @@
                             <th>
                                 Ativo?
                             </th>
+                            <?php
+                                if($user->id_cargo == 4 or $user->id_cargo == 5){
+                                    echo "<th></th>";
+                                }
+                            ?>
                         </tr>
                         <tr>
                             <?php 
@@ -41,10 +46,26 @@
                                             echo "<td>";
                                                 echo "<p>$cargo->nm_cargo</p>";
                                             echo "</td>";
-                                            echo "<td>";
-                                                if ($cargo->st_cargo) echo "Sim";
-                                                else echo "Não";
-                                            echo "</td>";
+                                            if($cargo->st_cargo){
+                                                echo "<td>";
+                                                    echo "<p style='color: green'>Sim</p>";
+                                                echo "</td>";
+                                                if($user->id_cargo == 4 or $user->id_cargo == 5){
+                                                    echo "<td>";
+                                                        echo "<a href='/actions/mudar_status.php?tb=cargo&cd=$cargo->cd_cargo&local=/pages/admin/cadastrar_cargo.php'>Desativar</a>";
+                                                    echo "</td>";
+                                                }
+                                            }
+                                            else{
+                                                echo "<td>";
+                                                    echo "<p style='color: red'>Não</p>";
+                                                echo "</td>";
+                                                if($user->id_cargo == 4 or $user->id_cargo == 5){
+                                                    echo "<td>";
+                                                        echo "<a href='/actions/mudar_status.php?tb=cargo&cd=$cargo->cd_cargo&local=/pages/admin/cadastrar_cargo.php'>Ativar</a>";
+                                                    echo "</td>";
+                                                }
+                                            }
                                         echo "</tr>";
                                     }
                                 }
@@ -52,6 +73,9 @@
                         </tr>
                     </table>
                 </div>
+                <?php 
+                    if($user->id_cargo == 4 or $user->id_cargo == 5){
+                ?>
                 <hr />
                 <form method="post" action="/actions/cadastra_cargo.php" id="form">
                     <h3 onclick="toggleAdc()" class="texto-adicionar">
@@ -73,6 +97,9 @@
                         </tr>
                     </table>
                 </form>
+                <?php 
+                    }
+                ?>
             </div>
         </div>
     </div>

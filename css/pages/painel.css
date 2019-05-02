@@ -21,6 +21,10 @@
     width: 115px;
 }
 
+.profile p{
+    text-align: center;
+}
+
 .dashboard {
     grid-area: sidebar;
     background-color: #33146B;
