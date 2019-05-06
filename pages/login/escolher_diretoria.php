@@ -5,13 +5,17 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
 		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <title>Faça login</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="theme-color" content="#2c125e">
+		<title>Login</title>
 		<link rel="stylesheet" type="text/css" href="/css/pages/guild.css">
 		<link rel="stylesheet" type="text/css" href="/css/common.css">
 	</head>
 	<body>
-		<h1>Escolha a diretoria</h1>
+		<h1 class="frase">Escolha sua área!</h1>
 		<?php
 			$query = $sys->listarDiretorias();
 			if(!empty($query)){
